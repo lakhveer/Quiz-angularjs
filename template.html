@@ -1,0 +1,28 @@
+<div ng-show="inProgress" style="display: none;">
+	<div ng-show="!quizOver">
+		<h3>{{question}}</h3>
+		<ul>
+			<!-- ngRepeat: option in options -->
+			<li ng-repeat="option in options">
+				<input type="radio" name="answer" value="{{option}}"> {{option}}
+			</li>
+		</ul>
+		<button ng-click="checkQuestion()" ng-show="answerMode"
+			style="display: none;">Submit</button>
+
+		<div ng-show="!answerMode">
+			<button ng-click="nextQuestion()">Next</button>
+			<span ng-show="correctAns" style="display: none;">correct!</span>
+		</div>
+	</div>
+
+	<div ng-show="quizOver" style="display: none;">
+		<button ng-click="reset()">Play again</button>
+	</div>
+	<br>
+	<div>Score: {{score}}</div>
+</div>
+
+<divng-show="!inProgress">
+	<button  ng-click="start()">Start</button>
+</div>
